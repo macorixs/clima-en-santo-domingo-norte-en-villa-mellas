@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="200">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clima de villa mella</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+
+        $('#satelite').on('radar'), 
+        $('#radar meteorologico'),
+        $('#obtener datos del gps'),
+        $('#obtener datos del radar'),
+        $('obtener los datos del satelite'),
+        $('#animaciones')
+    
+fetch ('https://api.openweathermap.org/data/2.5/weather?q=villa mella&lang=es&units=metric&appid=ba3ab0b5af3579534f0f1cd19b88b1a4')
+    .then(resp => {return resp.json()})
+    .then(data => setweatherdata(data))
+
+
+var setweatherdata = data => {
+    console.log(data)
+
+    var weatherdata = {
+        location: data.name,
+        description: data.weather[0].description,
+        feels_like: data.main.feels_like,
+        humidity: data.main.humidity,
+        pressure: data.main.pressure,
+        temperature: data.main.temp_max,
+        clouds: data.clouds.all,
+        wind: data.wind.speed,
+        sunrise: data.sys.sunrise,  
+        sunset: data.sys.sunset, 
+        timezone: data.sys.timezone,
+        deg: data.wind.deg,
+        gust: data.wind.gust,
+        temp_min: data.main.temp_min,
+        temp: data.main.temp,
+        
+    }
+    
+    Object.keys(weatherdata).forEach(key => {
+        document.getElementById(key).textContent = weatherdata[key];
+    });
+
+
+ 
+
+   
+}
+
+
+
+        </script>
+        <script>
+window.addEventListener('load' , nubes =>{
+  $('#satelite').on('click'),
+  $('#radar meteorologico'),
+  $('#obtener datos del gps'),
+  $('#obtener los datos del radar'),
+  $('#obtener los datos de satelite'),
+  $('#animaciones')
+
+})
+
+
+        </script>
+  <script>
+var timestamp = (1708686190)*1000;
+console.log(timestamp);
+
+var timetamp = (1708728197)*1000;
+console.log(timetamp);
+
+var fecha = new Date(timestamp)
+console.log(fecha);
+
+
+var fechas = new Date(timetamp)
+console.log(fechas);
+
+document.write(fecha);
+
+
+document.write(fechas);
+
+  </script>      
+  <script>
+    function actualizarHoraYFecha() {
+      const contenedorHora = document.getElementById("hora");
+      const contenedorFecha = document.getElementById("fecha");
+  
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const segundos = ahora.getSeconds();
+      const dia = ahora.getDate();
+      const mes = ahora.getMonth() + 1; // Los meses comienzan en 0
+      const año = ahora.getFullYear();
+  
+      const horaFormateada = hora + ":" + (minutos < 10 ? "0" : "") + minutos + ":" + (segundos < 10 ? "0" : "") + segundos;
+      const fechaFormateada = dia + "/" + mes + "/" + año;
+  
+      contenedorHora.textContent = horaFormateada;
+      contenedorFecha.textContent = fechaFormateada;
+    }
+  
+    // Actualizar la hora y fecha cada segundo
+    setInterval(actualizarHoraYFecha, 1000);
+  
+    // Llamar a la función para mostrar la hora y fecha inicialmente
+    actualizarHoraYFecha();
+  </script>      
+</head>
+<body>
+  <span id="satelite"></span>
+    <span id="radar meteorologico"></span>
+    <span id="obtener datos del gps"></span>
+    <span id="obtener datos del radar"></span>
+      <span id="obtener los datos del satelite"></span>
+        <span id="animaciones"></span>
+        <div id="container">
+          <div id="hora"></div>
+          <div id="fecha"></div>
+          <div id="location"></div><p>provincias</p>
+          <div id="description"></div><p>clima</p>
+          <div id="feels_like"></div><p>viento frio</p>
+          <div id="humidity"></div><p>humedad</p>
+          <div id="pressure"></div><p>presion almoferica</p>
+          <div id="temp"></div><p>temperatura regular</p>
+          <div id="temperature"></div><p>temperatura maxima</p>
+          <div id="temp_min"></div><p>temperatura minima</p>
+          <div id="clouds"></div><p>nubes</p>
+          <div id="wind"></div><p>viento</p> 
+          <div id="deg"></div><p>dirrecion del viento</p>  
+          <div id="gust"></div><p>rafagas de velocidad del viento</p>
+          <div id="sunrise"></div><p id="sunrise">amanecer</p><p></p>
+          <div id="sunset"></div><p id="sunset"">puesta del sol</p><p></p> 
+          <div id="timezone"></div> 
+             
+      
+ 
+</body>
+</html>
